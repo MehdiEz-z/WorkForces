@@ -6,17 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Employe {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Department {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nom;
-    private Double salaire;
-    public Employe(String nom, Double salaire) {
+
+    public Department(String nom) {
         this.nom = nom;
-        this.salaire = salaire;
     }
-    public Employe() {
+
+    public Department() {
     }
 
     public long getId() {
@@ -35,19 +34,10 @@ public class Employe {
         this.nom = nom;
     }
 
-    public Double getSalaire() {
-        return salaire;
-    }
-
-    public void setSalaire(Double salaire) {
-        this.salaire = salaire;
-    }
-
     @Override
     public String toString() {
-        return "Employe{" +
+        return "Departement{" +
                 "nom='" + nom + '\'' +
-                ", salaire=" + salaire +
                 '}';
     }
 }
