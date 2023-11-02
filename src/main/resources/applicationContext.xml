@@ -52,7 +52,12 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
     </context:component-scan>
 
-    <bean name="employeeService" class="com.workforces.service.">
+    <bean name="departmentService" class="com.workforces.service.implementations.DepartmentServiceImpl">
+        <constructor-arg ref="departmentRepository"/>
+    </bean>
+
+    <bean name="employeeService" class="com.workforces.service.implementations.EmployeeServiceImpl">
         <constructor-arg ref="employeeRepository"/>
     </bean>
+
 </beans>

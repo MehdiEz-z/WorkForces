@@ -1,18 +1,20 @@
 package com.workforces.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Department {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nom;
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
 
-    public Department(String nom) {
+    public Department(String nom, List<Employee> employees) {
         this.nom = nom;
+        this.employees = employees;
     }
 
     public Department() {
@@ -34,10 +36,19 @@ public class Department {
         this.nom = nom;
     }
 
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
     @Override
     public String toString() {
-        return "Departement{" +
+        return "Department{" +
                 "nom='" + nom + '\'' +
+                ", employees=" + employees +
                 '}';
     }
 }

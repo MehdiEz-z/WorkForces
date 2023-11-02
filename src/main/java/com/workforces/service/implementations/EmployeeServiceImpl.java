@@ -13,9 +13,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
+
     @Override
-    public Employee addEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public void addEmployee(Employee employee) {
+        if (employee.getSalaire() >= 4000.0) {
+            employeeRepository.save(employee);
+            System.out.println("L'employé a été ajouté avec succee.");
+        } else {
+            System.out.println("Le salaire de l'employé est inférieur à 1000.0. L'employé n'a pas été ajouté.");
+        }
     }
 
     @Override
