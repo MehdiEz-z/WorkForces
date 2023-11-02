@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 public class Department {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nom;
     @OneToMany(mappedBy = "department")
     private List<Employee> employees;
@@ -20,11 +20,11 @@ public class Department {
     public Department() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

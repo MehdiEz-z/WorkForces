@@ -43,8 +43,14 @@
     <bean id="persistenceExceptionTranslationPostProcessor" class=
             "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
-    <bean id="department" class="com.workforces.entities.Department"/>
-    <bean id="employee" class="com.workforces.entities.Employee"/>
+    <bean id="department1" class="com.workforces.entities.Department">
+        <property name="nom" value="Comptable"/>
+    </bean>
+    <bean id="employee1" class="com.workforces.entities.Employee">
+        <property name="nom" value="mehdi"/>
+        <property name="salaire" value="12000"/>
+        <property name="department" ref="department1"/>
+    </bean>
 
     <jpa:repositories base-package="com.workforces.repository"/>
 
@@ -57,7 +63,8 @@
     </bean>
 
     <bean name="employeeService" class="com.workforces.service.implementations.EmployeeServiceImpl">
-        <constructor-arg ref="employeeRepository"/>
+        <constructor-arg index="0" ref="employeeRepository"/>
+        <constructor-arg index="1" ref="departmentService"/>
     </bean>
 
 </beans>

@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nom;
     private Double salaire;
     @ManyToOne
@@ -19,11 +19,11 @@ public class Employee {
     public Employee() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
