@@ -9,12 +9,9 @@ public class Department {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    @OneToMany(mappedBy = "department")
-    private List<Employee> employees;
 
-    public Department(String nom, List<Employee> employees) {
+    public Department(String nom) {
         this.nom = nom;
-        this.employees = employees;
     }
 
     public Department() {
@@ -36,19 +33,11 @@ public class Department {
         this.nom = nom;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
 
     @Override
     public String toString() {
         return "Department{" +
                 "nom='" + nom + '\'' +
-                ", employees=" + employees +
                 '}';
     }
 }

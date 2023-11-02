@@ -13,17 +13,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) throws IllegalAccessException {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Department departmentOne = applicationContext.getBean("department1", Department.class);
+        //Department departmentOne = applicationContext.getBean("department1", Department.class);
 
-       DepartmentService departmentService = applicationContext.getBean("departmentService", DepartmentServiceImpl.class);
-       departmentService.addDepartment(departmentOne);
+        DepartmentService departmentService = applicationContext.getBean("departmentService", DepartmentServiceImpl.class);
+        //departmentService.addDepartment(departmentOne);
 
-        Employee employeeOne = applicationContext.getBean("employee1", Employee.class);
+        //Employee employeeOne = applicationContext.getBean("employee1", Employee.class);
 
 
         EmployeeService employeeService = applicationContext.getBean("employeeService", EmployeeServiceImpl.class);
-        employeeService.addEmployee(employeeOne);
+        //employeeService.addEmployee(employeeOne);
 
-
+        System.out.println(employeeService.findById(11L).get());
     }
 }
